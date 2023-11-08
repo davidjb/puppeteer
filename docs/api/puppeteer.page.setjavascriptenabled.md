@@ -22,6 +22,10 @@ class Page {
 
 Promise&lt;void&gt;
 
+## Exceptions
+
+When WebDriverBiDi is used as protocol used
+
 ## Remarks
 
 NOTE: changing this value won't affect scripts that have already been run. It will take full effect on the next navigation.

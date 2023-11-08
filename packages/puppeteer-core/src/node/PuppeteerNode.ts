@@ -22,7 +22,7 @@ import {
   uninstall,
 } from '@puppeteer/browsers';
 
-import type {Browser} from '../api/Browser.js';
+import type {Browser, BiDiBrowserSupport} from '../api/Browser.js';
 import type {BrowserConnectOptions} from '../cdp/BrowserConnector.js';
 import type {ConnectOptions} from '../cdp/ConnectOptions.js';
 import type {Configuration} from '../common/Configuration.js';
@@ -175,6 +175,10 @@ export class PuppeteerNode extends Puppeteer {
    *
    * @param options - Options to configure launching behavior.
    */
+  launch(
+    options: PuppeteerLaunchOptions & {protocol: 'webDriverBiDi'}
+  ): Promise<BiDiBrowserSupport>;
+  launch(options: PuppeteerLaunchOptions): Promise<Browser>;
   launch(options: PuppeteerLaunchOptions = {}): Promise<Browser> {
     const {product = this.defaultProduct} = options;
     this.#lastLaunchedProduct = product;

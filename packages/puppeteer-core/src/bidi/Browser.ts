@@ -18,12 +18,12 @@ import type {ChildProcess} from 'child_process';
 
 import type * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
 
-import {
-  Browser,
-  BrowserEvent,
-  type BrowserCloseCallback,
-  type BrowserContextOptions,
+import type {
+  BiDiBrowserSupport,
+  BrowserCloseCallback,
+  BrowserContextOptions,
 } from '../api/Browser.js';
+import {Browser, BrowserEvent} from '../api/Browser.js';
 import {BrowserContextEvent} from '../api/BrowserContext.js';
 import type {Page} from '../api/Page.js';
 import type {Target} from '../api/Target.js';
@@ -168,7 +168,7 @@ export class BidiBrowser extends Browser {
     }
   }
 
-  override userAgent(): Promise<string> {
+  override userAgent(): never {
     throw new UnsupportedOperation();
   }
 
@@ -324,6 +324,6 @@ export class BidiBrowser extends Browser {
   }
 
   override disconnect(): void {
-    this;
+    throw new UnsupportedOperation();
   }
 }

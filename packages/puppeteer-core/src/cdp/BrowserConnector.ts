@@ -59,7 +59,6 @@ export interface BrowserConnectOptions {
   _isPageTarget?: IsPageTargetCallback;
   /**
    * @defaultValue 'cdp'
-   * @internal
    */
   protocol?: 'cdp' | 'webDriverBiDi';
   /**
