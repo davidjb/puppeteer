@@ -683,10 +683,12 @@ export class BidiPage extends Page {
         type: `image/${type}`,
         quality: quality ? quality / 100 : undefined,
       },
-      clip: clip && {
-        type: 'box',
-        ...clip,
-      },
+      clip: clip
+        ? {
+            type: 'box',
+            ...clip,
+          }
+        : undefined,
     });
     return data;
   }
