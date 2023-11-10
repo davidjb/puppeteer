@@ -199,18 +199,6 @@ export interface BrowserEvents extends Record<EventType, unknown> {
 }
 
 /**
- * @public
- */
-export interface BiDiBrowserSupport extends Browser {
-  /**
-   * {@inheritDoc Browser.userAgent}
-   *
-   * @deprecated Method not supported in BiDi
-   */
-  userAgent(): never;
-}
-
-/**
  * {@link Browser} represents a browser instance that is either:
  *
  * - connected to via {@link Puppeteer.connect} or

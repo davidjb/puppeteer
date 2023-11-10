@@ -19,7 +19,6 @@ import type {ChildProcess} from 'child_process';
 import type * as Bidi from 'chromium-bidi/lib/cjs/protocol/protocol.js';
 
 import type {
-  BiDiBrowserSupport,
   BrowserCloseCallback,
   BrowserContextOptions,
 } from '../api/Browser.js';
@@ -54,9 +53,21 @@ export interface BidiBrowserOptions {
 }
 
 /**
+ * @experimental
+ */
+export interface BiDiBrowserSupport extends Browser {
+  /**
+   * {@inheritDoc Browser.userAgent}
+   *
+   * @deprecated Method not supported in BiDi
+   */
+  userAgent(): never;
+}
+
+/**
  * @internal
  */
-export class BidiBrowser extends Browser {
+export class BidiBrowser extends Browser implements BiDiBrowserSupport {
   readonly protocol = 'webDriverBiDi';
 
   // TODO: Update generator to include fully module
@@ -323,7 +334,7 @@ export class BidiBrowser extends Browser {
     return this.#browserTarget;
   }
 
-  override disconnect(): void {
+  override disconnect(): never {
     throw new UnsupportedOperation();
   }
 }

@@ -630,23 +630,23 @@ export class BidiMouse extends Mouse {
     });
   }
 
-  override drag(): Promise<Protocol.Input.DragData> {
+  override drag(): never {
     throw new UnsupportedOperation();
   }
 
-  override dragOver(): Promise<void> {
+  override dragOver(): never {
     throw new UnsupportedOperation();
   }
 
-  override dragEnter(): Promise<void> {
+  override dragEnter(): never {
     throw new UnsupportedOperation();
   }
 
-  override drop(): Promise<void> {
+  override drop(): never {
     throw new UnsupportedOperation();
   }
 
-  override dragAndDrop(): Promise<void> {
+  override dragAndDrop(): never {
     throw new UnsupportedOperation();
   }
 }
