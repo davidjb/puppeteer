@@ -29,6 +29,20 @@ All notable changes to this project will be documented in this file. See [standa
     * puppeteer-core bumped from 21.0.2 to 21.0.3
     * @puppeteer/browsers bumped from 1.5.1 to 1.6.0
 
+## [21.7.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-v21.6.0...puppeteer-v21.7.0) (2023-12-11)
+
+
+### Features
+
+* download chrome-headless-shell by default and use it for the old headless mode ([#11093](https://github.com/puppeteer/puppeteer/issues/11093)) ([75ba27b](https://github.com/puppeteer/puppeteer/commit/75ba27bca2a5d78037cd324f879d009e61f19fde))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * puppeteer-core bumped from 21.6.0 to 21.7.0
+
 ## [21.6.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-v21.5.2...puppeteer-v21.6.0) (2023-12-05)
 
 
