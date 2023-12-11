@@ -278,7 +278,7 @@ export interface ScreenshotOptions {
   /**
    * Capture the screenshot beyond the viewport.
    *
-   * @defaultValue `false` if there is no `clip`. `true` otherwise.
+   * @defaultValue `true`
    */
   captureBeyondViewport?: boolean;
 }
@@ -2446,23 +2446,15 @@ export abstract class Page extends EventEmitter<PageEvents> {
       if (options.clip.height <= 0) {
         throw new Error("'height' in 'clip' must be positive.");
       }
+      if (options.fullPage) {
+        throw new Error("'clip' and 'fullPage' are mutually exclusive");
+      }
     }
 
     setDefaultScreenshotOptions(options);
 
     options.clip =
       options.clip && roundRectangle(normalizeRectangle(options.clip));
-
-    if (options.fullPage) {
-      if (options.clip) {
-        throw new Error("'clip' and 'fullPage' are exclusive");
-      }
-    } else if (
-      !options.clip &&
-      userOptions.captureBeyondViewport === undefined
-    ) {
-      options.captureBeyondViewport = false;
-    }
 
     const data = await this._screenshot(options);
     if (options.encoding === 'base64') {
